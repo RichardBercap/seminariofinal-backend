@@ -3,12 +3,12 @@ from django.contrib import admin
 from django.urls import path, include 
 
 from rest_framework.routers import DefaultRouter
-from .views import CareerViewSet
+from .views import CareerViewSet, DatasetViewSet
 
 # Configuración del Router
 router = DefaultRouter()
 router.register(r'careers', CareerViewSet, basename='career')
-
+router.register(r'datasets', DatasetViewSet, basename='dataset')
 # Vistas para el Login (JWT)
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
@@ -25,4 +25,5 @@ urlpatterns = [
     # Endpoints del CRUD
     # Aquí es donde fallaba porque no encontraba 'include'
     path('api/', include(router.urls)), 
+    
 ]

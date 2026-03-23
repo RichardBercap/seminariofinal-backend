@@ -9,9 +9,9 @@ class CareerSerializer(serializers.ModelSerializer):
         read_only_fields = ('created_at', 'updated_at')
 
 class DatasetSerializer(serializers.ModelSerializer):
-    file = serializers.FileField(write_only=True) # Campo virtual para el archivo
+    #file = serializers.FileField(write_only=True) # Campo virtual para el archivo
 
     class Meta:
         model = Dataset
-        fields = ['id', 'name', 'description', 'type', 'file', 'created_at']
-        read_only_fields = ['created_at']
+        fields = ['id', 'name', 'description', 'type', 'created_at']
+        read_only_fields = ['created_at','updated_at', 'user_id']
